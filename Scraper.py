@@ -2,12 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 
 def fetch_html(url):
-    """
-    Faz a requisição HTTP para o site e retorna o HTML da página.
-    """
+    
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Verifica se ocorreu algum erro na requisição
+        response.raise_for_status()  # Verifica se ocorreu algum erro 
         return response.text
     except requests.exceptions.HTTPError as err:
         print(f"Erro HTTP: {err}")
@@ -29,21 +27,19 @@ def parse_html(html_content):
     return [titulo.get_text().strip() for titulo in titulos]
 
 def save_results(data, filename="resultados.txt"):
-    """
-    Salva os resultados extraídos em um arquivo de texto.
-    """
+    
     with open(filename, 'w') as file:
         for item in data:
             file.write(f"{item}\n")
 
 def main():
     # URL do site que desejamos raspar
-    url = ''
+    url = 'https://www.linkedin.com/in/jamerson-lucas-tenorio-valentim-274b4629b/'
     
-    # Passo 1: Obter o HTML da página
+    # Obter o HTML da página
     html_content = fetch_html(url)
     
-    # Passo 2: Se o HTML for obtido com sucesso, processá-lo
+    # HTML for obtido com sucesso, processá-lo
     if html_content:
         titulos = parse_html(html_content)
         
