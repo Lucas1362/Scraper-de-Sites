@@ -1,0 +1,5 @@
+Abra o arquivo scraper.py em um editor de texto ou IDE de sua escolha.
+
+Localize a linha que contém a variável url e altere o valor para a URL que você deseja raspar. 
+
+Se necessário, ajuste os parâmetros da função parse_html() para corresponder às tags e classes da página que você está raspando. exemplo: parse_html(h1)
